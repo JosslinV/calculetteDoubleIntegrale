@@ -27,6 +27,7 @@ public class CalculView extends JPanel {
 	
 	
 	public CalculView() {
+		CalculControleur contr = new CalculControleur(this);
 		
 		this.setLayout(new GridLayout(2,2));
 		
@@ -121,5 +122,12 @@ public class CalculView extends JPanel {
 		this.bpLancer = new JButton ("Lancer le calcul");
 		
 		lancer.add(this.bpLancer);
+		this.bpLancer.addActionListener(contr);
 	}
+	
+	public void afficherResultat(float resultat) {
+		this.result.setText(Float.toString(resultat));
+	}
+	
+	
 }
