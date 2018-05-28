@@ -8,7 +8,10 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+
+import org.omg.PortableServer.ThreadPolicyOperations;
 
 public class CalculView extends JPanel {
 
@@ -18,8 +21,9 @@ public class CalculView extends JPanel {
 	private JTextField tfB;
 	private JTextField saisieFct;
 	private JTextField result;
-	private JButton bpDecomp33;
-	private JButton bpDecomp44;
+	private JRadioButton bpDecomp33;
+	private JRadioButton bpDecomp44;
+	private JButton bpLancer;
 	
 	
 	public CalculView() {
@@ -105,13 +109,17 @@ public class CalculView extends JPanel {
 		decomp.setLayout(new GridLayout(2,1));
 
 		
-		this.bpDecomp33 = new JButton();
-		this.bpDecomp44 = new JButton();
-		
-		this.bpDecomp33.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
-		this.bpDecomp33.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+		this.bpDecomp33 = new JRadioButton("3 x 3");
+		this.bpDecomp44 = new JRadioButton("5 x 5");
 		
 		decomp.add(this.bpDecomp33);
 		decomp.add(this.bpDecomp44);
+		
+		//panneau lancement de calcul
+		lancer.setLayout(new GridLayout(1, 1));
+		
+		this.bpLancer = new JButton ("Lancer le calcul");
+		
+		lancer.add(this.bpLancer);
 	}
 }
