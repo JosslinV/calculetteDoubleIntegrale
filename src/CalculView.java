@@ -1,10 +1,9 @@
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -108,13 +107,18 @@ public class CalculView extends JPanel {
 		
 		//Panneau de décomposition
 		decomp.setLayout(new GridLayout(2,1));
-
+		ButtonGroup group = new ButtonGroup();
 		
 		this.bpDecomp33 = new JRadioButton("3 x 3");
 		this.bpDecomp44 = new JRadioButton("5 x 5");
 		
+		group.add(this.bpDecomp33);
 		decomp.add(this.bpDecomp33);
+		this.bpDecomp33.addActionListener(contr);
+		
+		group.add(this.bpDecomp44);
 		decomp.add(this.bpDecomp44);
+		this.bpDecomp44.addActionListener(contr);
 		
 		//panneau lancement de calcul
 		lancer.setLayout(new GridLayout(1, 1));
