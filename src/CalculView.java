@@ -1,6 +1,8 @@
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -114,11 +116,12 @@ public class CalculView extends JPanel {
 		
 		group.add(this.bpDecomp33);
 		decomp.add(this.bpDecomp33);
-		this.bpDecomp33.addActionListener(contr);
+		this.bpDecomp33.setMnemonic(1);
+		this.bpDecomp33.setSelected(true);
 		
 		group.add(this.bpDecomp44);
 		decomp.add(this.bpDecomp44);
-		this.bpDecomp44.addActionListener(contr);
+		this.bpDecomp44.setMnemonic(2);
 		
 		//panneau lancement de calcul
 		lancer.setLayout(new GridLayout(1, 1));
@@ -133,5 +136,42 @@ public class CalculView extends JPanel {
 		this.result.setText(Float.toString(resultat));
 	}
 	
+	public int radioSelected() {
+		
+		if(this.bpDecomp33.isSelected()) {
+			return this.bpDecomp33.getMnemonic();
+		} 
+		
+		if(this.bpDecomp44.isSelected()) {
+			return this.bpDecomp44.getMnemonic();
+		}
+		
+		return 0;
+	}
+	
+	public Map<String, Object> rassemblerDonnees(){
+		 Map<String, Object> map = new HashMap<String, Object>();
+		 if(tfa.getText().equals("")) {
+			tfa.setText("0"); 
+		 }
+
+		 if(tfA.getText().equals("")) {
+			tfA.setText("0"); 
+		 }
+		 if(tfb.getText().equals("")) {
+			tfb.setText("0"); 
+		 }
+		 if(tfB.getText().equals("")) {
+			tfB.setText("0"); 
+		 }
+		 
+		 map.put("a", Integer.parseInt(this.tfa.getText()));
+		 map.put("A", Integer.parseInt(this.tfA.getText()));
+		 map.put("b", Integer.parseInt(this.tfb.getText()));
+		 map.put("B", Integer.parseInt(this.tfB.getText()));
+		 map.put("fct", this.saisieFct.getText());
+		 
+		 return map;
+	}
 	
 }
