@@ -19,7 +19,6 @@ public class CalculView extends JPanel {
 	private JTextField tfA;
 	private JTextField tfb;
 	private JTextField tfB;
-	private JTextField saisieFct;
 	private JTextField result;
 	private JRadioButton bpDecomp33;
 	private JRadioButton bpDecomp44;
