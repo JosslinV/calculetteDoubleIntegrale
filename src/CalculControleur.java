@@ -24,7 +24,7 @@ public class CalculControleur implements ActionListener{
 			int b = (int) map.get("b");
 			int B = (int) map.get("B");
 			
-			moteur.setValeur(a, A, b, B, vue.radioSelected());
+			moteur.setValeur(a, A, b, B, vue.radioSelected(), vue.radioSelectedFct());
 			
 			vue.afficherResultat(moteur.calculer());
 		}

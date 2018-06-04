@@ -25,6 +25,8 @@ public class CalculView extends JPanel {
 	private JRadioButton bpDecomp33;
 	private JRadioButton bpDecomp44;
 	private JButton bpLancer;
+	private JRadioButton radFct1;
+	private JRadioButton radFct2;
 	
 	
 	public CalculView() {
@@ -95,10 +97,19 @@ public class CalculView extends JPanel {
 		fonction.add(res);
 		
 		fct.setLayout(new FlowLayout());
-		fct.add(new JLabel("f(x)"));
-		this.saisieFct = new JTextField();
-		this.saisieFct.setPreferredSize(new Dimension(120, 25));
-		fct.add(this.saisieFct);
+		ButtonGroup groupFct = new ButtonGroup();
+		
+		this.radFct1 = new JRadioButton("dx/dy");
+		this.radFct2 = new JRadioButton("sin(x)*cos(y)");
+		
+		groupFct.add(this.radFct1);
+		fct.add(this.radFct1);
+		this.radFct1.setMnemonic(1);
+		this.radFct1.setSelected(true);
+		
+		groupFct.add(this.radFct2);
+		fct.add(this.radFct2);
+		this.radFct2.setMnemonic(2);
 		
 		res.setLayout(new FlowLayout());
 		res.add(new JLabel("res"));
@@ -149,6 +160,19 @@ public class CalculView extends JPanel {
 		return 0;
 	}
 	
+	public int radioSelectedFct() {
+		
+		if(this.radFct1.isSelected()) {
+			return this.bpDecomp33.getMnemonic();
+		} 
+		
+		if(this.radFct2.isSelected()) {
+			return this.bpDecomp44.getMnemonic();
+		}
+		
+		return 0;
+	}
+	
 	public Map<String, Object> rassemblerDonnees(){
 		 Map<String, Object> map = new HashMap<String, Object>();
 		 if(tfa.getText().equals("")) {
@@ -169,7 +193,6 @@ public class CalculView extends JPanel {
 		 map.put("A", Integer.parseInt(this.tfA.getText()));
 		 map.put("b", Integer.parseInt(this.tfb.getText()));
 		 map.put("B", Integer.parseInt(this.tfB.getText()));
-		 map.put("fct", this.saisieFct.getText());
 		 
 		 return map;
 	}
