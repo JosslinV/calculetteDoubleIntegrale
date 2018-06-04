@@ -31,8 +31,6 @@ public class CalculMoteur {
 	}
 	
 	public float calculer () {
-    
-
 	    float aCal = this.a; 
 	    float gaCal = this.ga;
 	

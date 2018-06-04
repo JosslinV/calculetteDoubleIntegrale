@@ -2,6 +2,7 @@ import javax.swing.JFrame;
 
 public class CalculWindow extends JFrame{
 
+	private static final long serialVersionUID = 1L;
 	private CalculView appli;
 	
 	public CalculWindow() {

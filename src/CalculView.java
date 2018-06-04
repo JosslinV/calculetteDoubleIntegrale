@@ -12,10 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import org.omg.PortableServer.ThreadPolicyOperations;
-
 public class CalculView extends JPanel {
 
+	private static final long serialVersionUID = 1L;
 	private JTextField tfa;
 	private JTextField tfA;
 	private JTextField tfb;
