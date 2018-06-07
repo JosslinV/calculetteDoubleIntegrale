@@ -97,8 +97,8 @@ public class CalculView extends JPanel {
 		fct.setLayout(new FlowLayout());
 		ButtonGroup groupFct = new ButtonGroup();
 		
-		this.radFct1 = new JRadioButton("dx/dy");
-		this.radFct2 = new JRadioButton("sin(x)*cos(y)");
+		this.radFct1 = new JRadioButton("x/y");
+		this.radFct2 = new JRadioButton("1/1+y*cos(x)");
 		
 		groupFct.add(this.radFct1);
 		fct.add(this.radFct1);
